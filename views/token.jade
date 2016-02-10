@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= 'Token'
+  script(type='text/javascript').
+    if (sessionStorage) {
+      sessionStorage.jwt = '#{jwt}';
+      window.location.replace('/');
+    }
+
+  a(href='/')= 'Fortsätt'

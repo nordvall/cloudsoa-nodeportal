@@ -1,0 +1,24 @@
+<form>
+    <div class="form-horizontal">
+        <h4>ToDoItem</h4>
+        <hr />
+
+        <input id="id" name="id" type="hidden" ng-model="item.id" />
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="text">Text</label>
+            <div class="col-md-10">
+                <input class="form-control text-box single-line" id="text" type="text" ng-model="item.text" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" ng-click="update(item)" />
+            </div>
+        </div>
+</div>
+</form>
+<div>
+    <a href="/#/django">Back to List</a>
+</div>
