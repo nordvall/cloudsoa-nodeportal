@@ -18,9 +18,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.text({ type: "application/json"}))
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', function(req, res) {
-    res.sendfile('../public/index.html');
-});
 
 var login = require('./routes/login')
 app.use('/login', login)
@@ -28,7 +25,7 @@ app.use('/login', login)
 // express-jwt is authenticating our incoming api calls
 var expressJwt = require('express-jwt');
 var fs = require('fs')
-var publicKey = fs.readFileSync('azure.pub');
+var publicKey = fs.readFileSync(path.join(__dirname, 'azure.pub'));
 
 var jwtAuth = expressJwt({
     secret: publicKey,
