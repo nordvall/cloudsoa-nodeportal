@@ -15,5 +15,8 @@
     "express-jwt": "~3.3.0",
     "request": "^2.69.0",
     "winston": "^2.1.1"
+  },
+  "optionalDependencies": {
+    "dotenv": "^0.2.5"
   }
 }

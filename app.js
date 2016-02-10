@@ -3,7 +3,11 @@ var path = require('path');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-require('dotenv').config();
+// Optionally override environment variables (process.env.xyz) with .env file
+var dotenv = require('dotenv')
+if (dotenv) {
+    dotenv.config();
+}
 
 var app = express();
 
