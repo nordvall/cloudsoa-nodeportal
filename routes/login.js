@@ -20,5 +20,13 @@ router.post('/callback', function(req, res) {
     res.render('token', { jwt: jwtString });
 });
 
+router.get('/logout', function(req, res) {
+    res.render('token');
+});
+
+router.get('/status', function(req, res) {
+    res.json(req.user)
+});
+
 
 module.exports = router

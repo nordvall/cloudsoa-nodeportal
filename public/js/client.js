@@ -109,3 +109,13 @@ nodeControllers.controller('DjangoEditController', new apiEditController('django
 
 nodeControllers.controller('SpringListController', new apiListController('spring'));
 nodeControllers.controller('SpringEditController', new apiEditController('spring'));
+
+nodeControllers.controller('LoginController', ['$scope', '$http', function($scope, $http) {
+        console.log("LoginController");
+        $http.get('/login/status').then(
+            function successCallback(response) {
+                $scope.user = response.data
+            }
+        )
+    }]
+);

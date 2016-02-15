@@ -19,9 +19,6 @@ app.use(bodyParser.text({ type: "application/json"}))
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-var login = require('./routes/login')
-app.use('/login', login)
-
 // express-jwt is authenticating our incoming api calls
 var expressJwt = require('express-jwt');
 var fs = require('fs')
@@ -32,6 +29,10 @@ var jwtAuth = expressJwt({
     audience: process.env.OAUTH_CLIENT_ID,
     issuer: process.env.OAUTH_TOKEN_ISSUER
 });
+
+var login = require('./routes/login')
+app.use('/login/status', jwtAuth)
+app.use('/login', login)
 
 var django = require('./routes/django')
 app.use('/django', jwtAuth, django)

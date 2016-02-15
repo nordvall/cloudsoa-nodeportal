@@ -30,15 +30,17 @@
             </button>
             <a class="navbar-brand" href="#">Node.js portal</a>
         </div>
-        <div id="navbar" class="collapse navbar-collapse">
+        <div id="navbar" class="collapse navbar-collapse" ng-controller="LoginController">
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Home</a></li>
-                <li><a href="#/django">Django</a></li>
-                <li><a href="#/spring">Spring</a></li>
-
+                <li ng-show="user"><a href="#/django">Django</a></li>
+                <li ng-show="user"><a href="#/spring">Spring</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/login">Logga in</a></li>
+                <li ng-hide="user"><a href="/login">Logga in</a></li>
+                <li ng-show="user">{{user.name}}</li>
+                <li ng-show="user"><a href="/login/logout">Logga ut</a></li>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>

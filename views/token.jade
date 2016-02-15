@@ -3,9 +3,14 @@ extends layout
 block content
   h1= 'Token'
   script(type='text/javascript').
-    if (sessionStorage) {
-      sessionStorage.jwt = '#{jwt}';
-      window.location.replace('/');
+    var jwt = '#{jwt}';
+
+    if (jwt) {
+      sessionStorage.jwt = jwt;
+    } else {
+      delete sessionStorage.jwt;
     }
+
+    window.location.replace('/');
 
   a(href='/')= 'Fortsätt'
